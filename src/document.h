@@ -61,7 +61,7 @@ class ImportDocumentCommand : public Command {
     std::string name;
 public:
     explicit ImportDocumentCommand(Document* d, std::string name_)
-            :Command(d), name(std::move(name_)) { }
+            :Command(d), name(std::move(name_)) {}
 
     void execute() override
     {
@@ -73,7 +73,7 @@ class ExportDocumentCommand : public Command {
     std::string name;
 public:
     explicit ExportDocumentCommand(Document* d, std::string name_)
-            :Command(d), name(std::move(name_)) { }
+            :Command(d), name(std::move(name_)) {}
 
     void execute() override
     {
@@ -85,7 +85,7 @@ class DrawElements : public Command {
     GraphicElements* element;
 public:
     explicit DrawElements(Document* d, GraphicElements* element_)
-            :Command(d), element(std::move(element_)) { }
+            :Command(d), element(std::move(element_)) {}
 
     void execute() override
     {
@@ -97,7 +97,7 @@ class RemoveElements : public Command {
     GraphicElements* element;
 public:
     explicit RemoveElements(Document* d, GraphicElements* element_)
-            :Command(d), element(std::move(element_)) { }
+            :Command(d), element(std::move(element_)) {}
 
     void execute() override
     {
