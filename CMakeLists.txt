@@ -11,19 +11,24 @@ project(gui VERSION 0.0.${PATCH_VERSION})
 #include_directories(SYSTEM ${GTEST_INCLUDE_DIRS})
 
 set(SOURCE_PATH "${PROJECT_SOURCE_DIR}/src")
-set(TEST_PATH "${PROJECT_SOURCE_DIR}/tests")
+#set(TEST_PATH "${PROJECT_SOURCE_DIR}/tests")
 
-add_executable(gui ${SOURCE_PATH}/main.cpp)
-add_library(lib_gui ${SOURCE_PATH}/gof.cpp)
+add_executable(gui ${SOURCE_PATH}/main.cpp
+                   ${SOURCE_PATH}/document.cpp
+#                   ${SOURCE_PATH}/document.h
+                   ${SOURCE_PATH}/graphic_elements.cpp
+#                   ${SOURCE_PATH}/graphic_elements.h
+                                                    )
+#add_library(lib_gui ${SOURCE_PATH}/gof.cpp)
 #add_executable(test_printip  ${TEST_PATH}/gtest.cpp)
 
-target_link_libraries(gui lib_gui)
+#target_link_libraries(gui lib_gui)
 #find_package(Threads)
 #target_link_libraries(test_printip ${GTEST_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} lib_print_ip)
 
 set_target_properties(
     gui
-    lib_gui
+#    lib_gui
 #    test_printip
     PROPERTIES
         CXX_STANDARD 17
