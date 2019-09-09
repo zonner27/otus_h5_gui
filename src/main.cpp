@@ -29,6 +29,14 @@ int main()
             c->execute();
         }
 
+        delete circle;
+        delete circle_frame;
+        delete square;
+        for (auto c: history)
+        {
+            delete c;
+        }
+
     } catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;

@@ -8,6 +8,7 @@ class GraphicElements
 public:
     virtual void create() = 0;
     virtual void remove() = 0;
+    virtual ~GraphicElements() {}
 };
 
 class Circle : public GraphicElements
@@ -22,6 +23,7 @@ public:
     {
         std::cout << "Remove circle" << std::endl;
     }
+    ~Circle() {}
 };
 
 class CircleWithFrame : public GraphicElements
@@ -42,6 +44,7 @@ public:
     }
 
     CircleWithFrame(GraphicElements *circle_) : circle(circle_) {};
+    ~CircleWithFrame() {}
 };
 
 class Square : public GraphicElements
@@ -56,6 +59,7 @@ public:
     {
         std::cout << "Remove square" << std::endl;
     }
+    ~Square() {}
 };
 
 #endif //GRAPHICELEMENTS213208092019_H
