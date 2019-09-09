@@ -39,7 +39,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-    - curl -T gui_ip-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uzonner27:$BINTRAY_API_KEY "https://api.bintray.com/content/zonner27/otus-cpp/gui/$TRAVIS_BUILD_NUMBER/gui-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+    - curl -T gui-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uzonner27:$BINTRAY_API_KEY "https://api.bintray.com/content/zonner27/otus-cpp/gui/$TRAVIS_BUILD_NUMBER/gui-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
 
   - provider: pages
     skip_cleanup: true
