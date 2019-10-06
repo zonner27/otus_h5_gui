@@ -2,28 +2,35 @@
 #include "document.h"
 #include "graphic_elements.h"
 
+
 TEST(TestGUI, create_doc) {
 
-    Document doc;
-    Command *create = new NewDocumentCommand(&doc);
+    std::unique_ptr<Document> doc;
+    std::unique_ptr<Command> create(new NewDocumentCommand(doc.get()));
+    testing::internal::CaptureStdout();
     create->execute();
-    delete create;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_TRUE(output == "Create new document\n");
 }
 
 TEST(TestGUI, import_doc) {
 
-    Document doc;
-    Command *import = new ImportDocumentCommand(&doc, "file.txt");
+    std::unique_ptr<Document> doc;
+    std::unique_ptr<Command> import(new ImportDocumentCommand(doc.get(), "file.txt"));
+    testing::internal::CaptureStdout();
     import->execute();
-    delete import;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_TRUE(output == "Import document file.txt\n");
 }
 
 TEST(TestGUI, export_doc) {
 
-    Document doc;
-    Command *exports = new ExportDocumentCommand(&doc, "file.txt");
+    std::unique_ptr<Document> doc;
+    std::unique_ptr<Command> exports(new ExportDocumentCommand(doc.get(), "file.txt"));
+    testing::internal::CaptureStdout();
     exports->execute();
-    delete exports;
+    std::string output = testing::internal::GetCapturedStdout();
+    ASSERT_TRUE(output == "Export document file.txt\n");
 }
 
 int main(int argc, char *argv[])

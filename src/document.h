@@ -2,10 +2,10 @@
 #define DOCUMENT213108092019_H
 
 #include <iostream>
+#include <memory>
 #include "graphic_elements.h"
 
 class Document {
-
 public:
     void create_doc()
     {
@@ -43,10 +43,10 @@ protected:
     explicit Command(Document* d)
             :document(d) { }
 
-    Document* document;
+    std::unique_ptr<Document> document;
 };
 
-class NewDocumentCommand : public Command {
+class NewDocumentCommand : public Command {    
 public:
     explicit NewDocumentCommand(Document* d)
             :Command(d) { }
@@ -82,26 +82,26 @@ public:
 };
 
 class DrawElements : public Command {
-    GraphicElements* element;
+    std::unique_ptr<GraphicElements> element;
 public:
     explicit DrawElements(Document* d, GraphicElements* element_)
             :Command(d), element(std::move(element_)) {}
 
     void execute() override
     {
-        document->draw_elements(element);
+        document->draw_elements(element.get());
     }
 };
 
 class RemoveElements : public Command {
-    GraphicElements* element;
+    std::unique_ptr<GraphicElements> element;
 public:
     explicit RemoveElements(Document* d, GraphicElements* element_)
             :Command(d), element(std::move(element_)) {}
 
     void execute() override
     {
-        document->remove_elements(element);
+        document->remove_elements(element.get());
     }
 };
 
