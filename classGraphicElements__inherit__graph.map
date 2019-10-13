@@ -1,0 +1,5 @@
+<map id="GraphicElements" name="GraphicElements">
+<area shape="rect" id="node2" href="$classCircle.html" title="Circle" alt="" coords="5,80,63,107"/>
+<area shape="rect" id="node3" href="$classCircleWithFrame.html" title="CircleWithFrame" alt="" coords="87,80,211,107"/>
+<area shape="rect" id="node4" href="$classSquare.html" title="Square" alt="" coords="235,80,303,107"/>
+</map>
