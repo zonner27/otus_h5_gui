@@ -3,42 +3,37 @@
 
 #include <iostream>
 
-class GraphicElements
-{
+class GraphicElements {
+
 public:
-    virtual void create() = 0;
+    virtual void draw() = 0;
     virtual void remove() = 0;
     virtual ~GraphicElements() {}
 };
 
-class Circle : public GraphicElements
-{
+class Circle : public GraphicElements {
+
 public:
-    void create() override
-    {
+    void draw() override {
         std::cout << "Create circle" << std::endl;
     }
 
-    void remove() override
-    {
+    void remove() override {
         std::cout << "Remove circle" << std::endl;
     }
     ~Circle() {}
 };
 
-class CircleWithFrame : public GraphicElements
-{
-    GraphicElements *circle;
+class CircleWithFrame : public GraphicElements {
 
+    GraphicElements *circle;
 public:
-    void create() override
-    {
-        circle->create();
+    void draw() override {
+        circle->draw();
         std::cout << "with frame" << std::endl;
     }
 
-    void remove() override
-    {
+    void remove() override {
         circle->remove();
         std::cout << "with frame" << std::endl;
     }
@@ -47,16 +42,14 @@ public:
     ~CircleWithFrame() {}
 };
 
-class Square : public GraphicElements
-{
+class Square : public GraphicElements {
+
 public:
-    void create() override
-    {
+    void draw() override {
         std::cout << "Create square " << std::endl;
     }
 
-    void remove() override
-    {
+    void remove() override {
         std::cout << "Remove square" << std::endl;
     }
     ~Square() {}

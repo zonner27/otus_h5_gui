@@ -3,10 +3,8 @@
 #include "graphic_elements.h"
 #include "document.h"
 
-int main()
-{
-    try
-    {
+int main() {
+    try {
         std::unique_ptr<Document> doc;
         std::vector<std::unique_ptr<Command>> history;
 
@@ -27,15 +25,11 @@ int main()
         history.push_back(std::make_unique<RemoveElements>(doc.get(), square.get()));
 
         for (auto& c: history)
-        {
             c->execute();
-        }
 
-    } catch (std::exception& e)
-    {
+    } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
-
 
     return 0;
 }

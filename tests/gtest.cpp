@@ -6,9 +6,9 @@
 TEST(TestGUI, create_doc) {
 
     std::unique_ptr<Document> doc;
-    std::unique_ptr<Command> create(new NewDocumentCommand(doc.get()));
+    std::unique_ptr<Command> create_doc(new NewDocumentCommand(doc.get()));
     testing::internal::CaptureStdout();
-    create->execute();
+    create_doc->execute();
     std::string output = testing::internal::GetCapturedStdout();
     ASSERT_TRUE(output == "Create new document\n");
 }
@@ -33,8 +33,8 @@ TEST(TestGUI, export_doc) {
     ASSERT_TRUE(output == "Export document file.txt\n");
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
+
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
